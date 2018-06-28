@@ -1,15 +1,11 @@
-print "\tI'm tabbed in."
-print "I'm split\non a line."
-print "I'm \\ a \\ cat."
+print "How old are your?"
+age=raw_input("Year:")
 
-print '''
-I"""ll do a list:
-\t* Cat food
-\t* Fishies
-\t* Catnip
-\t* Grass
-'''
+print "How tall are you?"
+height=raw_input("CM:")
 
-#while True:
-#        for i in ["/","-","|","\\","|"]:
-#            print "%s\r" % i,
+print "How much do you weigh?"
+weigh=raw_input("KG:")
+
+print "So, you're %s year old, %s CM tall and %s KG heavy" % (
+    age,height,weigh)
