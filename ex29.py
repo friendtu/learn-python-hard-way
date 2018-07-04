@@ -1,8 +1,10 @@
 people=20
-cats=30
+cats=20
 dogs=15
 
-if people<cats :
+if people<cats:
     print "Too many cats!"
-else:
+elif people>cats:
     print "Not many cats!"
+else:
+    print "match"
