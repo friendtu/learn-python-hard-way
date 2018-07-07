@@ -4,5 +4,7 @@ dogs=15
 
 if people<cats :
     print "Too many cats!"
-else:
+elif people>cats:
     print "Not many cats!"
+else:
+    print "We cannot decide"
