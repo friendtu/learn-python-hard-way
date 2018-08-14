@@ -1,0 +1,1 @@
+def parse_sentence(word_list):
