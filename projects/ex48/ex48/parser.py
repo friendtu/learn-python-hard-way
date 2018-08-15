@@ -13,22 +13,22 @@ class Sentence(object):
 
 class Parser(object):
     def __init__(self,word_list):
-        self.word_list=word_list
+        self.__word_list=word_list
     
     def __peektype(self):
-        if self.word_list==None: return None
-        word=self.word_list[0]
+        if self.__word_list==None: return None
+        word=self.__word_list[0]
         return word[0]
 
     def __skip_stop(self):
-        while(self.word_list and self.__peektype()=='stop'):
+        while(self.__word_list and self.__peektype()=='stop'):
             self.__match_one('stop')
 
     def __match_one(self,type):
-        if self.word_list==None: return None
+        if self.__word_list==None: return None
 
         if(self.__peektype()==type):
-            return self.word_list.pop(0)
+            return self.__word_list.pop(0)
         else:
             return None
 
