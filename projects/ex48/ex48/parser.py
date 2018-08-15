@@ -17,47 +17,47 @@ class Parser(object):
     
     def peektype(self):
         if self.word_list==None: return None
-            word=self.word_list[0]
+        word=self.word_list[0]
         return word[0]
 
     def skip_stop(self):
-        while(self.word_list and peektype()=='stop'):
-            match_one(self.word_list,'stop')
+        while(self.word_list and self.peektype()=='stop'):
+            self.match_one('stop')
 
-    def parse_one(self,type):
+    def match_one(self,type):
         if self.word_list==None: return None
 
-        if(peektype()==type):
+        if(self.peektype()==type):
             return self.word_list.pop(0)
         else:
             return None
 
     def parse_subject(self):
-        skip_stop()
-        word=match_one('noun')
+        self.skip_stop()
+        word=self.match_one('noun')
         if word==None:
             word=('noun','player')
         return word
     
     def parse_verb(self):
-        skip_stop()
-        word=match_one('verb')
+        self.skip_stop()
+        word=self.match_one('verb')
         if word==None:
             raise ParseError("Expected a verb next.")
         else: 
             return word
 
     def parse_object(self):
-        skip_stop()
-        word=match_one('direction')
+        self.skip_stop()
+        word=self.match_one('direction')
         if word==None:
-            word=parse_one('noun')
+            word=self.match_one('noun')
             if word==None:
                 raise ParseError("Expected a noun or direction")
         return word
 
     def parse_sentence(self):
-        subject=parse_subject()
-        verb=parse_verb()
-        object=parse_object()
+        subject=self.parse_subject()
+        verb=self.parse_verb()
+        object=self.parse_object()
         return Sentence(subject,verb,object)
