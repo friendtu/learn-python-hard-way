@@ -1,6 +1,8 @@
 import web
 from gothonweb import map
 
+#web.config.debug = False
+
 urls=('/hello','HelloIndex',
     '/game','GameEngine',
     '/','Index',
